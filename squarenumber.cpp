@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <math.h>
+#include <cmath>
 #define endl "\n"
 
 using namespace std;
