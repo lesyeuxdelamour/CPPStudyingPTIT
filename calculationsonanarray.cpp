@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <algorithm>
 #define endl "\n"
 #define MOD 1000000007
 
@@ -21,17 +21,19 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, x;
-		cin >> n >> x;
-		int a[n];
-		ll sum = 0;
-		for(int i = 0; i < n; ++i)
+		int n;
+		cin >> n;
+		ll a[n];
+		for(auto &x : a)
+			cin >> x;
+		ll h = a[0], g = a[0];
+		for(int i = 1; i < n; ++i)
 		{
-			cin >> a[i];
-			sum += a[i] * powMOD(x, n - i - 1);
-			sum %= MOD;
+			h = ((h % MOD) * (a[i] % MOD)) % MOD;
+			g = __gcd(g, a[i]);
 		}
-		cout << sum << endl;
+		ll res = powMod(h, g);
+		cout << res << endl;
 	}
 	return 0;
 }

@@ -8,10 +8,11 @@ int main()
 {
 	int t;
 	cin >> t;
+	cin.ignore();
 	while(t--)
 	{
 		string s;
-		cin >> s;
+		getline(cin, s);
 		int pos = s.find("084");
 		s = s.erase(pos, 3);
 		cout << s << endl;
