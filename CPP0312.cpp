@@ -13,10 +13,14 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		string s;
+		cin >> s;
+		set<char> st;
+		for(auto x : s)
+			st.insert(x);
+		int k;
+		cin >> k;
+		cout << (st.size() + k >= 26 ? 1 : 0) << endl;
 	}
-	return 0; 
+	return 0;
 }

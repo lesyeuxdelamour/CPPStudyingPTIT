@@ -6,17 +6,19 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+bool isPrime(int n)
+{
+	for(int i = 2; i <= sqrt(n); ++i)
+		if(n % i == 0)
+			return 0;
+	return n > 1;
+}
+
 int main()
 {
 	faster();
-	int t;
-	cin >> t;
-	while(t--)
-	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
-	}
-	return 0; 
+	int n;
+	cin >> n;
+	cout << (isPrime(n) ? "YES" : "NO");
+	return 0;
 }

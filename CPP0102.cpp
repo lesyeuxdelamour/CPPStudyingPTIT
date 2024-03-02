@@ -13,10 +13,12 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		char c;
+		cin >> c;
+		if(c >= 'a' && c <= 'z')
+			cout << char(c + 'A' - 'a') << endl;
+		if(c >= 'A' && c <= 'Z')
+			cout << char(c - 'A' + 'a') << endl;
 	}
-	return 0; 
+	return 0;
 }

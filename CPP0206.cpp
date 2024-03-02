@@ -13,10 +13,13 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		vector<int> v(n);
+		for(auto &x : v)
+			cin >> x;
+		sort(v.begin(), v.end());
+		cout << v[n - 1] << endl;
 	}
-	return 0; 
+	return 0;
 }

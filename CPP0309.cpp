@@ -11,12 +11,16 @@ int main()
 	faster();
 	int t;
 	cin >> t;
+	cin.ignore();
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		string s;
+		getline(cin, s);
+		stringstream ss(s);
+		int cnt = 0;
+		while(ss >> s)
+			cnt++;
+		cout << cnt << endl;
 	}
-	return 0; 
+	return 0;
 }

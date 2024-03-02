@@ -13,10 +13,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		ll a, b;
+		cin >> a >> b;
+		cout << (a * b) / __gcd(a, b) << " " << __gcd(a, b) << endl;
 	}
-	return 0; 
+	return 0;
 }

@@ -6,6 +6,19 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+bool isPalindrome(string n)
+{
+	int l = 0, r = n.size() - 1;
+	while(l < r)
+	{
+		if(n[l] != n[r])
+			return 0;
+		l++;
+		r--;
+	}
+	return 1;
+}
+
 int main()
 {
 	faster();
@@ -13,10 +26,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		string n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		cout << (isPalindrome(n) ? "YES\n" : "NO\n") << endl;
 	}
-	return 0; 
+	return 0;
 }

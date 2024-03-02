@@ -13,10 +13,14 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
+		ll n, k;
+		cin >> n >> k;
+		n %= k;
 		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		if(sum == k)
+			cout << "1\n";
+		else
+			cout << "0\n";
 	}
-	return 0; 
+	return 0;
 }

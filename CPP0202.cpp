@@ -13,10 +13,16 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		vector<int> v(n);
+		for(auto &x : v)
+			cin >> x;
+		sort(v.begin(), v.end());
+		int ans = 1e9;
+		for(int i = 1; i < n; ++i)
+			ans = min(ans, v[i] - v[i - 1]);
+		cout << ans << endl;
 	}
-	return 0; 
+	return 0;
 }

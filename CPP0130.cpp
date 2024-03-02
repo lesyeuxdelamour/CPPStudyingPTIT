@@ -15,8 +15,15 @@ int main()
 	{
 		ll n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		for(int i = 2; i <= sqrt(n); ++i)
+			while(n % i == 0)
+			{
+				cout << i << " ";
+				n /= i;
+			}
+		if(n > 1)
+			cout << n;
+		cout << endl;
 	}
-	return 0; 
+	return 0;
 }

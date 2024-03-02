@@ -13,10 +13,20 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		map<int, int> mp;
+		for(int i = 2; i <= sqrt(n); ++i)
+			while(n % i == 0)
+			{
+				mp[i]++;
+				n /= i;
+			}
+		if(n > 1)
+			mp[n]++;
+		for(auto x : mp)
+			cout << x.first << " " << x.second << endl;
+		cout << endl;
 	}
-	return 0; 
+	return 0;
 }

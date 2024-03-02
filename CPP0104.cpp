@@ -9,14 +9,14 @@ const int MOD = 1e9 + 7;
 int main()
 {
 	faster();
-	int t;
-	cin >> t;
-	while(t--)
+	ll sum = 0, tmp = 1;
+	int n;
+	cin >> n;
+	for(int i = 1; i <= n; ++i)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		tmp *= i;
+		sum += tmp;
 	}
-	return 0; 
+	cout << sum;
+	return 0;
 }

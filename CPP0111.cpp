@@ -6,6 +6,20 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+bool check(ll n)
+{
+	int tmp = n % 10;
+	n /= 10;
+	while(n)
+	{
+		if(abs(tmp - n % 10) != 1)
+			return 0;
+		tmp = n % 10;
+		n /= 10;
+	}
+	return 1;
+}
+
 int main()
 {
 	faster();
@@ -15,8 +29,7 @@ int main()
 	{
 		ll n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		cout << (check(n) ? "YES\n" : "NO\n"); 
 	}
-	return 0; 
+	return 0;
 }

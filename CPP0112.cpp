@@ -13,10 +13,10 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		double x1, y1, x2, y2;
+		cin >> x1 >> y1 >> x2 >> y2;
+		double ans = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
+		cout << fixed << setprecision(4) << ans << endl;
 	}
-	return 0; 
+	return 0;
 }

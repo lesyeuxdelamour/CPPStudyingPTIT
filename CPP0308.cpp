@@ -13,10 +13,15 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		string s;
+		cin >> s;
+		map<char, int> mp;
+		for(auto x : s)
+			mp[x]++;
+		for(auto x : s)
+			if(mp[x] == 1)
+				cout << x;
+		cout << endl;
 	}
-	return 0; 
+	return 0;
 }

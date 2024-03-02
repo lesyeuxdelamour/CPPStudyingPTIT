@@ -13,10 +13,22 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n, u;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		set<int> st;
+		for(int i = 0; i < n; ++i)
+		{
+			cin >> u;
+			if(u > 0)
+				st.insert(u);
+		}
+		int min = 0;
+		for(auto x : st)
+			if(x - min > 1)
+				break;
+			else
+				min = x;
+		cout << min + 1 << endl;
 	}
-	return 0; 
+	return 0;
 }

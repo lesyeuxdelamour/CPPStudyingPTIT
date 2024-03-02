@@ -6,6 +6,19 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+int compact(int n)
+{
+	if(n < 10)
+		return n;
+	int sumD = 0;
+	while(n)
+	{
+		sumD += n % 10;
+		n /= 10;
+	}
+	return compact(sumD);
+}
+
 int main()
 {
 	faster();
@@ -13,10 +26,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		cout << compact(n) << endl;
 	}
-	return 0; 
+	return 0;
 }

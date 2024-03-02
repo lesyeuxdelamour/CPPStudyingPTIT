@@ -13,10 +13,12 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		ll ans = 1;
+		for(int i = 2; i <= n; ++i)
+			ans = ans * i / __gcd(ans, i);
+		cout << ans << endl;
 	}
-	return 0; 
+	return 0;
 }

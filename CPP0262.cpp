@@ -13,10 +13,17 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
+		ll n, m;
+		cin >> n >> m;
 		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		ll a = (sum + m) / 2;
+		ll b = sum - a;
+		if(a - b != m)
+			cout << "No\n";
+		else if(__gcd(a, b) != 1)
+			cout << "No\n";
+		else
+			cout << "Yes\n";
 	}
-	return 0; 
+	return 0;
 }

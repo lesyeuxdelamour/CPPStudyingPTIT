@@ -13,10 +13,17 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		int a, m, flag = 1;
+		cin >> a >> m;
+		for(int i = 0; i < m; ++i)
+			if((a * i) % m == 1)
+			{
+				cout << i << endl;
+				flag = 0;
+				break;
+			}
+		if(flag)
+			cout << -1 << endl;
 	}
-	return 0; 
+	return 0;
 }

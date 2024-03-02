@@ -6,6 +6,18 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+bool isLucky(int n)
+{
+	while(n)
+	{
+		int tmp = n % 10;
+		if(tmp != 6 && tmp != 8 && tmp != 0)
+			return 0;
+		n /= 10;
+	}
+	return 1;
+}
+
 int main()
 {
 	faster();
@@ -13,10 +25,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		cout << (isLucky(n) ? "YES\n" : "NO\n");
 	}
-	return 0; 
+	return 0;
 }

@@ -9,14 +9,11 @@ const int MOD = 1e9 + 7;
 int main()
 {
 	faster();
-	int t;
-	cin >> t;
-	while(t--)
-	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
-	}
-	return 0; 
+	double sum = 0;
+	int n;
+	cin >> n;
+	for(int i = 1; i <= n; ++i)
+		sum += (double)1 / i;
+	cout << fixed << setprecision(4) << sum;
+	return 0;
 }

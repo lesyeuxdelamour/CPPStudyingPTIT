@@ -13,10 +13,20 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		int n, k, u;
+		cin >> n >> k;
+		vector<int> v(n + 1);
+		for(int i = 1; i <= n; ++i)
+		{
+			cin >> u;
+			v[i] = v[i - 1] + u;
+		}
+		int l, r;
+		for(int i = 0; i < k; ++i)
+		{
+			cin >> l >> r;
+			cout << v[r] - v[l - 1] << endl;
+		}
 	}
-	return 0; 
+	return 0;
 }

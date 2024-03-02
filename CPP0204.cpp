@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define endl "\n";
+#define endl "\n"
 #define faster(); ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
@@ -13,10 +13,20 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		vector<int> v(n);
+		map<int, int> mp;
+		for(auto x : v)
+		{
+			cin >> x;
+			mp[x]++;
+		}
+		int cnt = 0;
+		for(auto x : mp)
+			if(x.second > 1)
+				cnt += x.second;
+		cout << cnt << endl;
 	}
-	return 0; 
+	return 0;
 }

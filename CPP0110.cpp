@@ -13,10 +13,11 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
-		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		string s;
+		cin >> s;
+		int pos = s.find("084");
+		s.erase(pos, 3);
+		cout << s << endl;
 	}
-	return 0; 
+	return 0;
 }

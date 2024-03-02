@@ -6,6 +6,13 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+bool isLucky(int n)
+{
+	if(n % 100 == 86)
+		return 1;
+	return 0;
+}
+
 int main()
 {
 	faster();
@@ -13,10 +20,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll sum = n * (n + 1) / 2;
-		cout << sum << endl;
+		cout << isLucky(n) << endl;
 	}
-	return 0; 
+	return 0;
 }
