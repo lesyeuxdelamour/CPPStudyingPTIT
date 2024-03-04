@@ -6,6 +6,14 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+ll powMOD(int x, int n)
+{
+	ll p = 1;
+	for(int i = 0; i < n; ++i)
+		p = (p * (x % MOD)) % MOD;
+	return p;
+}
+
 int main()
 {
 	faster();
@@ -13,17 +21,17 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, ans = 1e7;
-		cin >> n;
+		int n, x;
+		cin >> n >> x;
 		int a[n];
+		ll sum = 0;
 		for(int i = 0; i < n; ++i)
+		{
 			cin >> a[i];
-//		sort(a, a + n); // thêm vào thì bị WA ????
-		for(int i = 0; i < n - 1; ++i)
-			for(int j = i + 1; j < n; ++j)
-				if(abs(a[i] + a[j]) < abs(ans))
-					ans = a[i] + a[j];
-		cout << ans << endl;
+			sum += a[i] * powMOD(x, n - i - 1);
+			sum %= MOD;
+		}
+		cout << sum << endl;
 	}
 	return 0;
 }

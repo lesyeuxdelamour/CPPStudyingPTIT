@@ -18,16 +18,17 @@ int main()
 		int a[n];
 		for(auto &x : a)
 			cin >> x;
-		int ans = 0;
-		for(int i = 0; i < n - 1; ++i)
-			for(int j = n - 1; j > i; --j)
-			{
-				if(j - i <= ans)
-					break;
-				if(a[i] <= a[j])
-					ans = max(j - i, ans);
-			}
-		cout << ans << endl;
+		int min_val = a[0], res = -1e5;
+		for(int i = 0; i < n; ++i)
+		{
+			if(a[i] > min_val)
+				res = max(res, a[i] - min_val);
+			min_val = min(min_val, a[i]);
+		}
+		if(res == -1e5)
+			cout << "-1\n";
+		else
+			cout << res << endl;
 	}
 	return 0;
 }

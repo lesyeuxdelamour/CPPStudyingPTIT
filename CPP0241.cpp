@@ -16,18 +16,30 @@ int main()
 		int n;
 		cin >> n;
 		int a[n];
-		for(auto &x : a)
-			cin >> x;
-		int ans = 0;
-		for(int i = 0; i < n - 1; ++i)
-			for(int j = n - 1; j > i; --j)
+		for(int i = 0; i < n; ++i)
+			cin >> a[i];
+		int l = 0, r = n - 1, cnt = 0;
+		while(l < r)
+		{
+			if(a[l] < a[r])
 			{
-				if(j - i <= ans)
-					break;
-				if(a[i] <= a[j])
-					ans = max(j - i, ans);
+				a[l + 1] += a[l];
+				l++;
+				cnt++;
 			}
-		cout << ans << endl;
+			else if(a[l] > a[r])
+			{
+				a[r - 1] += a[r];
+				r--;
+				cnt++;
+			}
+			else
+			{
+				l++;
+				r--;
+			}
+		}
+		cout << cnt << endl;
 	}
 	return 0;
 }

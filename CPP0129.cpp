@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define endl "\n"
+#define endl "\n";
 #define faster(); ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
@@ -16,7 +16,7 @@ int main()
 		int n, p;
 		cin >> n >> p;
 		if(n < p)
-			cout << 0 << endl;
+			cout << "0\n";
 		else
 		{
 			ll cnt = 0, fac = 1;

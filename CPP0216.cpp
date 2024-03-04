@@ -13,21 +13,24 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n;
+		int n, l, r;
 		cin >> n;
 		int a[n];
-		for(auto &x : a)
-			cin >> x;
-		int ans = 0;
-		for(int i = 0; i < n - 1; ++i)
-			for(int j = n - 1; j > i; --j)
+		for(int i = 0; i < n; ++i)
+			cin >> a[i];
+		cin >> l >> r;
+		int cnt = 0, flag = 1;
+		for(int i = l; i < r; ++i)
+		{
+			if(a[i + 1] < a[i] && flag == 1)
+				flag = -1;
+			if(a[i + 1] > a[i] && flag == -1)
 			{
-				if(j - i <= ans)
-					break;
-				if(a[i] <= a[j])
-					ans = max(j - i, ans);
+				flag = 0;
+				break;
 			}
-		cout << ans << endl;
+		}
+		cout << (flag ? "Yes\n" : "No\n");
 	}
 	return 0;
 }
