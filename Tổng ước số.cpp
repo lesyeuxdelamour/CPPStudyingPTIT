@@ -12,7 +12,6 @@ void sieve()
 {
 	divisor[1] = 1;
 	for(ll i = 2; i <= 2e6; ++i)
-	{
 		if(divisor[i] == 0)
 		{
 			divisor[i] = i;
@@ -20,7 +19,6 @@ void sieve()
 				if(divisor[j] == 0)
 					divisor[j] = i;
 		}
-	}
 }
 
 int main()
