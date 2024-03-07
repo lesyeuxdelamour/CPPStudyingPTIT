@@ -8,13 +8,13 @@ const int MOD = 1e9 + 7;
 
 string add(string fi, string se)
 {
-	string sum = "";
 	reverse(fi.begin(), fi.end());
 	reverse(se.begin(), se.end());
 	if(fi.size() > se.size())
 		se.insert(se.size(), fi.size() - se.size(), '0');
 	else
 		fi.insert(fi.size(), se.size() - fi.size(), '0');
+	string sum = "";
 	int left = 0;
 	for(int i = 0; i < fi.size(); ++i)
 	{

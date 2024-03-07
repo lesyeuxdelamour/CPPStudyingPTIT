@@ -6,8 +6,10 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
-string multiple(string a, string b)
+string mul(string a, string b)
 {
+	if(a == "0" || b == "0")
+		return "0";
 	vector<string> v;
 	int len = a.size() + b.size();
 	reverse(a.begin(), a.end());
@@ -53,11 +55,7 @@ int main()
 	{
 		string a, b;
 		cin >> a >> b;
-		if(a == "0" || b == "0")
-			cout << 0;
-		else
-			cout << multiple(a, b);
-		cout << endl;
+		cout << mul(a, b) << endl;
 	}
 	return 0;
 }
