@@ -13,19 +13,22 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, u;
+		int n;
 		cin >> n;
-		map<int, int> mp;
+		int a[n];
 		for(int i = 0; i < n; ++i)
+			cin >> a[i];
+		sort(a, a + n);
+		int l = 0, r = n - 1;
+		while(l < r)
 		{
-			cin >> u;
-			mp[u]++;
+			cout << a[r] << " " << a[l] << " ";
+			l++;
+			r--;
 		}
-		int cnt = 0;
-		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+		if(l == r)
+			cout << a[l];
+		cout << endl;
 	}
 	return 0;
 }

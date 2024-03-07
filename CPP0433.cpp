@@ -15,17 +15,26 @@ int main()
 	{
 		int n, u;
 		cin >> n;
+		vector<pair<int, int>> v;
 		map<int, int> mp;
 		for(int i = 0; i < n; ++i)
 		{
 			cin >> u;
 			mp[u]++;
 		}
-		int cnt = 0;
 		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+			v.push_back(make_pair(x.first, x.second));
+		sort(v.begin(), v.end(), [](pair<int, int> x, pair<int, int> y)
+			{
+				if(x.second == y.second)
+					return x.first < y.first;
+				return x.second > y.second;
+			}
+			);
+		for(int i = 0; i < v.size(); ++i)
+			for(int j = 0; j < v[i].second; ++j)
+				cout << v[i].first << " ";
+		cout << endl;
 	}
 	return 0;
 }

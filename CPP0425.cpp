@@ -13,19 +13,20 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, u;
+		int n;
 		cin >> n;
-		map<int, int> mp;
+		int a[n], b[n];
 		for(int i = 0; i < n; ++i)
-		{
-			cin >> u;
-			mp[u]++;
-		}
+			cin >> a[i];
+		sort(a, a + n);
 		int cnt = 0;
-		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+		for(int i = 0; i < n; i += 2)
+			b[i] = a[cnt++];
+		for(int i = 1; i < n; i += 2)
+			b[i] = a[cnt++];
+		for(int i = 0; i < n; ++i)
+			cout << b[i] << " ";
+		cout << endl;
 	}
 	return 0;
 }

@@ -13,19 +13,24 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, u;
+		int n;
 		cin >> n;
-		map<int, int> mp;
+		vector<int> a(n), b(n);
 		for(int i = 0; i < n; ++i)
 		{
-			cin >> u;
-			mp[u]++;
+			cin >> a[i];
+			b[i] = a[i];	
 		}
-		int cnt = 0;
-		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+		sort(b.begin(), b.end());
+		for(int i = 0; i < n; ++i)
+		{
+			int pos = upper_bound(b.begin(), b.end(), a[i]) - b.begin();
+			if(pos == n)
+				cout << "_ ";
+			else
+				cout << b[pos] << " ";
+		}
+		cout << endl;
 	}
 	return 0;
 }

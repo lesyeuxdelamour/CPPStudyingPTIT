@@ -13,19 +13,19 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, u;
+		int n;
 		cin >> n;
-		map<int, int> mp;
+		vector<ll> v(n);
 		for(int i = 0; i < n; ++i)
-		{
-			cin >> u;
-			mp[u]++;
-		}
-		int cnt = 0;
-		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+			cin >> v[i];
+		for(int i = 0; i < n; ++i)
+			if(i == 0)
+				cout << v[i] * v[i + 1] << " ";
+			else if(i == n - 1)
+				cout << v[i] * v[i - 1] << " ";
+			else
+				cout << v[i - 1] * v[i + 1] << " ";
+		cout << endl;
 	}
 	return 0;
 }

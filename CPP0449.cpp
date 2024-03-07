@@ -13,19 +13,22 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, u;
-		cin >> n;
-		map<int, int> mp;
+		int n, u, k, flag = -1;
+		cin >> n >> k;
+		int a[n];
+		unordered_set<int> u_st;
 		for(int i = 0; i < n; ++i)
 		{
-			cin >> u;
-			mp[u]++;
+			cin >> a[i];
+			u_st.insert(a[i]);
 		}
-		int cnt = 0;
-		for(auto x : mp)
-			if(x.second > 1)
-				cnt += x.second;
-		cout << cnt << endl;
+		for(int i = 0; i < n; ++i)
+			if(u_st.find(a[i] + k) != u_st.end())
+			{
+				flag = 1;
+				break;
+			}
+		cout << flag << endl;
 	}
 	return 0;
 }
