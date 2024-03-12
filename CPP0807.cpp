@@ -12,32 +12,28 @@ class IntSet
 		int n, m;
 		int a[101], b[101];
 	public:
-		void input();
-		void intersect();
+		void input()
+		{
+			ifstream fin("DATA.in");
+			fin >> n >> m;
+			for(int i = 0; i < n; ++i)
+				fin >> a[i];
+			for(int i = 0; i < m; ++i)
+				fin >> b[i];
+		}
+		void intersect()
+		{
+			map<int, int> mp;
+			for(int i = 0; i < n; ++i)
+				mp[a[i]] = 1;
+			for(int i = 0; i < m; ++i)
+			    if(mp[b[i]] == 1)
+				    mp[b[i]] = 2;
+			for(auto x : mp)
+				if(x.second == 2)
+					cout << x.first << " ";
+		}
 };
-
-void IntSet::input()
-{
-	ifstream fin("DATA.in");
-	fin >> n >> m;
-	for(int i = 0; i < n; ++i)
-		fin >> a[i];
-	for(int i = 0; i < m; ++i)
-		fin >> b[i];
-}
-
-void IntSet::intersect()
-{
-	map<int, int> mp;
-	for(int i = 0; i < n; ++i)
-		mp[a[i]] = 1;
-	for(int i = 0; i < m; ++i)
-	    if(mp[b[i]] == 1)
-		    mp[b[i]] = 2;
-	for(auto x : mp)
-		if(x.second == 2)
-			cout << x.first << " ";
-}
 
 int main()
 {
