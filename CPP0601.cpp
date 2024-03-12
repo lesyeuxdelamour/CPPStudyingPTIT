@@ -18,6 +18,7 @@ class SinhVien
 			this->name = this->IDclass = this->dob = "";
 			this->GPA = 0;
 		}
+		
 		void nhap()
 		{
 			getline(cin, name);
@@ -29,6 +30,7 @@ class SinhVien
 				dob.insert(3, "0");
 			cin >> GPA;
 		}
+		
 		void xuat()
 		{
 			cout << ID << " " << name << " " << IDclass << " " << dob << " " << fixed << setprecision(2) << GPA;

@@ -11,6 +11,7 @@ class SinhVien
 	private:
 		string ID, name, IDclass, dob;
 		double GPA;
+		static int stt;
 	public:
 		SinhVien()
 		{
@@ -22,6 +23,17 @@ class SinhVien
 		friend istream& operator >> (istream &in, SinhVien &x)
 		{
 			getline(in, x.name);
+			stringstream ss(x.name);
+			string token, res = "";
+			while(ss >> token)
+			{
+				token[0] = toupper(token[0]);
+				for(int i = 1; i < token.size(); ++i)
+					token[i] = tolower(token[i]);
+				res += token + " ";
+			}
+			res.pop_back();
+			x.name = res;
 			getline(in, x.IDclass);
 			getline(in, x.dob);
 			if(x.dob[1] == '/')

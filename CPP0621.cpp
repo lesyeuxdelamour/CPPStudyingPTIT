@@ -9,41 +9,48 @@ const int MOD = 1e9 + 7;
 class SinhVien
 {
 	private:
-		string ID, name, IDclass, dob;
-		double GPA;
+		string ID, name, IDclass, email;
 	public:
 		SinhVien()
 		{
-			this->ID = "B20DCCN001";
-			this->name = this->IDclass = this->dob = "";
-			this->GPA = 0;
+			this->ID = this->name = this->IDclass = this->email = "";
 		}
 		
 		friend istream& operator >> (istream &in, SinhVien &x)
 		{
+			getline(in, x.ID);
 			getline(in, x.name);
 			getline(in, x.IDclass);
-			getline(in, x.dob);
-			if(x.dob[1] == '/')
-				x.dob.insert(0, "0");
-			if(x.dob[4] == '/')
-				x.dob.insert(3, "0");
-			in >> x.GPA;
+			getline(in, x.email);
 			return in;
 		}
 		
 		friend ostream& operator << (ostream &out, SinhVien x)
 		{
-			out << x.ID << " " << x.name << " " << x.IDclass << " " << x.dob << " " << fixed << setprecision(2) << x.GPA;
+			cout << x.ID << " " << x.name << " " << x.IDclass << " " << x.email << endl;
 			return out;
 		}
+		
+		string getID()
+		{
+			return this->ID;
+		}
 };
+
+bool cmp(SinhVien a, SinhVien b)
+{
+	return a.getID() < b.getID();
+}
 
 int main()
 {
 	faster();
-	SinhVien a;
-	cin >> a;
-    cout << a;
+	SinhVien x;
+    vector<SinhVien> ds;
+    while(cin >> x)
+        ds.push_back(x);
+	sort(ds.begin(), ds.end(), cmp);
+    for(auto y : ds)
+    	cout << y;
 	return 0;
 }
