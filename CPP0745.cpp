@@ -6,24 +6,27 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+vector<ll> dpFibo(1001);
+
+void sieve()
+{
+	dpFibo[0] = 0;
+	dpFibo[1] = dpFibo[2] = 1;
+	for(int i = 2; i <= 1000; ++i)
+		dpFibo[i] = (dpFibo[i - 1] % MOD + dpFibo[i - 2] % MOD) % MOD;
+}
+
 int main()
 {
 	faster();
+	sieve();
 	int t;
 	cin >> t;
 	while(t--)
 	{
-		int k, p, cnt = 0;
-		cin >> k >> p;
-		for(ll i = 1; i < p; ++i)
-			if((i * i) % p == 1)
-			{
-				ll n = i + p * (k / p); // i là nghiệm thì i + k * p cũng là nghiệm
-				if(n > k)
-					n -= p;
-				cnt += (n - i) / p + 1;
-			}
-		cout << cnt << endl;
+		int n;
+		cin >> n;
+		cout << dpFibo[n] << endl;
 	}
 	return 0;
 }

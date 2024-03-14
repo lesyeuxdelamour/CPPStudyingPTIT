@@ -15,12 +15,10 @@ int main()
 	{
 		ll n, k;
 		cin >> n >> k;
-		n %= k;
-		ll sum = n * (n + 1) / 2;
-		if(sum == k)
-			cout << "1\n";
-		else
-			cout << "0\n";
+		ll a = k - 1;
+		ll b = n % k;
+		ll sum = a * (a + 1) / 2 * (n / k) + b * (b + 1) / 2;
+		cout << (sum == k) << endl;
 	}
 	return 0;
 }

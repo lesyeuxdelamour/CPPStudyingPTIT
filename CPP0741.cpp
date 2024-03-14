@@ -6,6 +6,19 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
+ll powRemain(ll x, ll y, ll p)
+{
+	if(!y)
+		return 1;
+	if(y & 1)
+	{
+		ll t = powRemain(x, y - 1, p);
+		return (t * x) % p;
+	}
+	ll t = powRemain(x, y / 2, p);
+	return (t * t) % p;
+}
+
 int main()
 {
 	faster();
@@ -13,17 +26,9 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int k, p, cnt = 0;
-		cin >> k >> p;
-		for(ll i = 1; i < p; ++i)
-			if((i * i) % p == 1)
-			{
-				ll n = i + p * (k / p); // i là nghiệm thì i + k * p cũng là nghiệm
-				if(n > k)
-					n -= p;
-				cnt += (n - i) / p + 1;
-			}
-		cout << cnt << endl;
+		ll x, y, p;
+		cin >> x >> y >> p;
+		cout << powRemain(x, y, p) << endl;
 	}
 	return 0;
 }
