@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 #define endl "\n";
 #define faster(); ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
@@ -11,7 +10,7 @@ ll mulMod(ll a, ll b, ll m)
 {
 	if(b == 0)
 		return 0;
-	ll tmp = mulMod(a, b / 2);
+	ll tmp = mulMod(a, b / 2, m);
 	tmp = (2 * tmp) % m;
 	if(b & 1)
 		tmp += a;

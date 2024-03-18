@@ -21,10 +21,11 @@ int main()
 	cin >> t;
 	while(t--)
 	{
+		ll n;
 		string s;
-		ll m;
-		cin >> s >> m;
-		cout << remain(s, m) << endl;
+		cin >> n >> s;
+		ll r = remain(s, n);
+		cout << __gcd(n, r) << endl;
 	}
 	return 0;
 }

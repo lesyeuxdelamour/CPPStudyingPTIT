@@ -29,16 +29,6 @@ class KhachHang
 {
 	public:
 		string ID, name, sex, dob, address;
-	public:
-		friend class HoaDon;
-//		KhachHang(string ID, string name, string sex, string dob, string address)
-//		{
-//			this->ID = ID;
-//			this->name = name;
-//			this->sex = sex;
-//			this->dob = dob;
-//			this->address = address;
-//		}
 };
 
 void nhapKH()
@@ -64,17 +54,6 @@ class MatHang
 	public:
 		string ID, name, unit;
 		ll buy, sell;
-		static int stt;	
-	public:
-		friend class HoaDon;
-//		MatHang(string ID, string name, string unit, ll buy, ll sell)
-//		{
-//			this->ID = ID;
-//			this->name = name;
-//			this->unit = unit;
-//			this->buy = buy;
-//			this->sell = sell;
-//		}
 };
 
 void nhapMH()
@@ -100,13 +79,6 @@ class HoaDon
 	public:
 		string IDhd, IDkh, IDmh;
 		ll number;
-		static int stthd;
-	public:
-		HoaDon()
-		{
-			this->IDhd = this->IDkh = this->IDmh = "";
-			this->number = 0;
-		}
 };
 
 void nhapxuatHD()
@@ -115,17 +87,16 @@ void nhapxuatHD()
 	ll number;
 	ifstream fin("HD.in");
 	int n;
-	fin >> n;
+	cin >> n;
 	for(int i = 0; i < n; ++i)
 	{
 		stthd++;
 		IDhd = "HD0" + string((stthd < 10) ? 1 : 0, '0') + to_string(stthd);
-		fin >> IDkh >> IDmh >> number;
+		cin >> IDkh >> IDmh >> number;
 		cout << IDhd << " " << KH[IDkh].name << " " << KH[IDkh].address << " ";
 		cout << MH[IDmh].name << " " << MH[IDmh].unit << " " << MH[IDmh].buy << " " << MH[IDmh].sell << " ";
 		cout << number << " " << MH[IDmh].sell * number << endl;
 	}
-	
 }
 
 int main()

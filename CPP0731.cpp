@@ -6,14 +6,6 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
-ll remain(string s, ll m)
-{
-	ll r = 0;
-	for(auto x : s)
-		r = (r * 10 + (x - '0') % m) % m;
-	return r;
-}
-
 int main()
 {
 	faster();
@@ -21,10 +13,11 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		string s;
-		ll m;
-		cin >> s >> m;
-		cout << remain(s, m) << endl;
+		int n;
+		cin >> n;
+		int a[n], dp[n];
+		for(int i = 0; i < n; ++i)
+			cin >> a[i];
 	}
 	return 0;
 }
