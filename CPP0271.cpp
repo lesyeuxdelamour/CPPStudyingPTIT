@@ -15,22 +15,18 @@ int main()
 	{
 		int n, m, l;
 		cin >> n >> m >> l;
-		int a[n][m];
-		for(int i = 0; i < n; ++i)
-			for(int j = 0; j < m; ++j)
-				cin >> a[i][j];
-		int k = l / 2 + 1;
-		for(int i = 0; i < n - k; ++i)
-		{
-			for(int j = 0; j < n - k; ++j)
+		int u, ps[n + 1][m + 1] = {};
+		for(int i = 1; i <= n; ++i)
+			for(int j = 1; j <= m; ++j)
 			{
-				int tmp = 0;
-				for(int i1 = 0; i1 < l; ++i1)
-					for(int j1 = 0; j1 < l; ++j1)
-						tmp += a[i + i1][j + j1];
-				tmp = floor(tmp / (l * l));
-				cout << tmp << " ";
+				cin >> u;
+				ps[i][j] = ps[i - 1][j] + ps[i][j - 1] - ps[i - 1][j - 1] + u;
 			}
+		int k = l / 2;
+		for(int i = k + 1; i <= n - k; ++i)
+		{
+			for(int j = k + 1; j <= m - k; ++j)
+				cout << ((ps[i + k][j + k] - ps[i + k][j - k - 1] - ps[i - k - 1][j + k] + ps[i - k - 1][j - k - 1]) / (l * l)) << " ";
 			cout << endl;
 		}
 	}

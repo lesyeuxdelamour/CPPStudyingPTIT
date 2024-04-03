@@ -6,19 +6,6 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
-bool isLucky(int n)
-{
-	if(n < 10)
-		return n == 9;
-	int sumD = 0;
-	while(n)
-	{
-		sumD += n % 10;
-		n /= 10;
-	}
-	return isLucky(sumD);
-}
-
 int main()
 {
 	faster();
@@ -31,7 +18,11 @@ int main()
 		int n = 0;
 		for(int i = 0; i < s.size(); ++i)
 			n += s[i] - '0';
-		cout << isLucky(n) << endl;
+		if(n == 0 || n % 9)
+		    cout << 0;
+		else
+		    cout << 1;
+		cout << endl;
 	}
 	return 0;
 }
