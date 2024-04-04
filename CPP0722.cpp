@@ -34,20 +34,6 @@ void mul(int x)
 		len--;
 }
 
-void Catalan(int n)
-{
-	for(int i = n + 1; i <= 2 * n; ++i)
-		edit(i, 1);
-	for(int i = 1; i <= n + 1; ++i)
-		edit(i, -1);
-	ans[0] = len = 1;
-	for(int i = 1; i < 20005; ++i)
-		while(s[i]--)
-			mul(i);
-	for(int i = len - 1; i >= 0; --i)
-		cout << ans[i];
-}
-
 int main()
 {
 	faster();
