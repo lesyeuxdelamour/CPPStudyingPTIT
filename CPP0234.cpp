@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#define endl "\n";
+#define faster(); ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+using namespace std;
+using ll = long long;
+const int MOD = 1e9 + 7;
+
+int main()
+{
+	faster();
+	int t;
+	cin >> t;
+	while(t--)
+	{
+		int n, m, k;
+		cin >> n >> m >> k;
+		int a[n][m];
+		for(int i = 0; i < n; ++i)
+			for(int j = 0; j < m; ++j)
+				cin >> a[i][j];
+		vector<int> v;
+		int row = 0, col = 0;
+		while(row < n && col < m)
+		{
+			for(int i = col; i < m; ++i)
+				v.push_back(a[row][i]);
+			row++;
+			for(int i = row; i < n; ++i)
+				v.push_back(a[i][m - 1]);
+			m--;
+			if(row < n)
+			{
+				for(int i = m - 1; i >= col; --i)
+					v.push_back(a[n - 1][i]);
+				n--;
+			}
+			if(col < m)
+			{
+				for(int i = n - 1; i >= row; --i)
+					v.push_back(a[i][col]);
+				col++;
+			}
+		}
+		cout << v[k - 1] << endl;
+	}	
+	return 0;
+}
