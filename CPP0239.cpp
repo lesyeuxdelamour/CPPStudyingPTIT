@@ -38,11 +38,7 @@ int main()
 					if(mat[i][row])
 					{
 						for(int j = 0; j < rank; ++j)
-						{
-							int tmp = mat[row][j];
-							mat[row][j] = mat[i][j];
-							mat[i][j] = tmp;
-						}
+							swap(mat[row][i], mat[i][j]);
 						reduce = false;
 						break;
 					}

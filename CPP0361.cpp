@@ -8,30 +8,31 @@ const int MOD = 1e9 + 7;
 
 int main()
 {
-	faster();
-	int n;
+//	faster(); // ch?m hon 2s
+	cin.tie(0); cout.tie(0);
+	int n; 
 	cin >> n;
 	string s;
-	map<string, int> mp;
+	vector<string> v;
 	while(n--)
 	{
 		cin >> s;
-		mp[s]++;
+		v.push_back(s);
 	}
-	ll cnt = 0;
-	map<string, int>::iterator it1, it2, it3;
-	for(it1 = mp.begin(); it1 != mp.end(); ++it1)
-	{
-	    cnt += it1->second * (it1->second - 1);
-		it1++;
-		it3 = it1;
-		it1--;
-		for(it2 = it3; it2 != mp.end(); ++it2)
-		{                                  
-			if(it3->first != it2->first && it2->first.find(it3->first) != string::npos)
-				cnt += it3->second * it2->second;
+	sort(v.begin(), v.end(), [](string a, string b)
+		{
+			if(a.size() == b.size())
+				return a > b;
+			return a.size() > b.size();
 		}
-	}
-	cout << cnt;
+		);
+	int ans = 0, size = v.size();
+	for(int i = 0; i < size - 1; ++i)
+		for(int j = i + 1; j < size; ++j)
+			if(v[i] == v[j])
+				ans += 2;
+			else if(v[i].find(v[j]) != string::npos)
+				ans += 1;
+	cout << ans;
 	return 0;
 }

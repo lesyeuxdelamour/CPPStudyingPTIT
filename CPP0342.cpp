@@ -13,20 +13,18 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		string s;
+		string s, ans = "";
 		cin >> s;
-		multiset<char> multist;
 		ll sum = 0;
 		for(int i = 0; i < s.size(); ++i)
 		{
-			if(isalpha(s[i]))
-				multist.insert(s[i]);
-			else
+			if(isdigit(s[i]))
 				sum += s[i] - '0';
+			else
+				ans += s[i];
 		}
-		for(auto x : multist)
-			cout << x;
-		cout << sum << endl;
+		sort(ans.begin(), ans.end());
+		cout << ans << sum << endl;
 	}
 	return 0;
 }

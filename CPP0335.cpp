@@ -15,7 +15,7 @@ int main()
 	{
 		string s;
 		cin >> s;
-		ll ans = 0;
+		int ans = 0;
 		for(int i = 0; i < s.size(); ++i)
 		{
 			string tmp = "";
@@ -25,7 +25,7 @@ int main()
 				i++;
 			}
 			if(!tmp.empty())
-				ans = max(stoll(tmp), ans);
+				ans = max(stoi(tmp), ans);
 		}
 		cout << ans << endl;
 	}

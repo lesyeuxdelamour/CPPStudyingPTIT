@@ -20,15 +20,15 @@ bool gene(int bit[], int n)
 	return 1;
 }
 
-void bin(int n, string s)
+void next(int n, string s)
 {
 	if(s.size() == n)
 	{
 		cout << s << " ";
 		return;
 	}
-	bin(n, s + "1");
-	bin(n, s + "1");
+	next(n, s + "0");
+	next(n, s + "1");
 }
 
 int main()
@@ -47,10 +47,10 @@ int main()
 //			for(int i = 0; i < n; ++i)
 //				cout << bit[i];
 //			cout << " ";
-//			if(!gene(n))
+//			if(!gene(bit, n))
 //				break;
 //		}
-//		cout << endl;
+
 //		C2:
 //		for(int i = 0; i < (1 << n); ++i)
 //		{
@@ -58,9 +58,9 @@ int main()
 //				cout << ((i >> j) & 1);
 //			cout << " ";
 //		}
-//        cout << endl;
+
 //		C3:
-		bin(n, "");
+		next(n, "");
 		cout << endl;
 	}
 	return 0;

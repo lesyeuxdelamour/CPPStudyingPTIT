@@ -6,30 +6,32 @@ using namespace std;
 using ll = long long;
 const int MOD = 1e9 + 7;
 
-int check(string s)
+ll MIN(string s)
 {
-	int sum = 0;
 	for(int i = 0; i < s.size(); ++i)
-	{
-	    s[i] -= '0';
-	    if(i & 1)
-	        sum += s[i];
-	    else
-	        sum -= s[i];
-	}
-	return sum % 11 == 0;
+		if(s[i] == '6')
+			s[i] = '5';
+	return stoll(s);
+}
+
+ll MAX(string s)
+{
+	for(int i = 0; i < s.size(); ++i)
+		if(s[i] == '5')
+			s[i] = '6';
+	return stoll(s);
 }
 
 int main()
 {
- 	faster();
+	faster();
 	int t;
 	cin >> t;
 	while(t--)
 	{
-		string s;
-		cin >> s;
-		cout << check(s) << endl;
+		string a, b;
+		cin >> a >> b;
+		cout << MIN(a) + MIN(b) << " " << MAX(a) + MAX(b) << endl;
 	}
 	return 0;
 }

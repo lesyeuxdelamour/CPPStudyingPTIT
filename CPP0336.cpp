@@ -15,36 +15,33 @@ int main()
 	{
 		string s1, s2;
 		cin >> s1 >> s2;
-		int n1 = s1.size(), n2 = s2.size(), n = 1e3, l, r;
-		int dd[256] = {};
+		int d1[256] = {}, d2[256] = {};
 		for(int i = 0; i < s2.size(); ++i)
-			dd[s2[i]]++;
-		for(int i = 0; i < n1; ++i)
+			d2[s2[i]]++;
+		int cnt = 0, ans = s1.size() + 1, idx = -1, k = 0;
+		for(int i = 0; i < s1.size(); ++i)
 		{
-			int d[256] = {};
-			for(int j = i; j < n1; ++j)
+			d1[s1[i]]++;
+			if(d1[s1[i]] <= d2[s1[i]])
+				cnt++;
+			if(cnt == s2.size())
 			{
-				d[s1[j]]++;
-				int flag = 1;
-				for(int k = 97; k < 123; ++k)
-					if(d[k] < dd[k])
-					{
-						flag = 0;
-						break;
-					}
-				if(flag && n > j - i + 1)
+				while(d1[s1[k]] > d2[s1[k]])
 				{
-					n = j - i + 1;
-					l = i;
-					r = j;
+					d1[s1[k]]--;
+					k++;
 				}
+				if(ans > i - k + 1)
+				{
+					idx = k;
+					ans = i - k + 1;
+				}		
 			}
 		}
-		if(n == 1e3)
-			cout << -1;
+		if(idx != -1)
+			cout << s1.substr(idx, ans);
 		else
-			for(int i = l; i <= r; ++i)
-				cout << s1[i];
+			cout << -1;
 		cout << endl;
 	}
 	return 0;

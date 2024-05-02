@@ -13,7 +13,7 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int n, sumAll = 0;
+		int n, sumAll = 0, sumMax = 0;
 		cin >> n;
 		int a[n][n], sumRow[n] = {}, sumCol[n] = {};
 		for(int i = 0; i < n; ++i)
@@ -23,10 +23,8 @@ int main()
 				sumRow[i] += a[i][j];
 				sumCol[j] += a[i][j];
 				sumAll += a[i][j];
+				sumMax = max(sumMax, max(sumRow[i], sumCol[j]));
 			}
-		sort(sumRow, sumRow + n, greater<int>());
-		sort(sumCol, sumCol + n, greater<int>());
-		int sumMax = max(sumRow[0], sumCol[0]);
 		cout << sumMax * n - sumAll << endl;
 	}
 	return 0;

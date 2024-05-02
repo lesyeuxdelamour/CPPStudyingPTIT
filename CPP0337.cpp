@@ -15,28 +15,28 @@ int main()
 	{
 		string s;
 		cin >> s;
-		int k = 0, n = s.size();
+		int n = 0;
 		int dd[256] = {}, d[256] = {};
-		for(int i = 0; i < n; ++i)
+		for(int i = 0; i < s.size(); ++i)
 			if(!dd[s[i]])
 			{
 			    dd[s[i]] = 1;
-			    k++;
+			    n++;
 			}
-		int ans = n, cnt = 0, l = 0;
-		for(int i = 0; i < n; ++i)
+		int ans = n, cnt = 0, k = 0;
+		for(int i = 0; i < s.size(); ++i)
 		{
 			d[s[i]]++;
 			if(d[s[i]] == 1)
 				cnt++;
-			if(cnt == k)
+			if(cnt == n)
 			{
-				while(d[s[l]] > 1)
+				while(d[s[k]] > 1)
 				{	
-					d[s[l]]--;
-					l++;
+					d[s[k]]--;
+					k++;
 				}
-				ans = min(ans, i - l + 1);
+				ans = min(ans, i - k + 1);
 			}
 		}
 		cout << ans << endl;

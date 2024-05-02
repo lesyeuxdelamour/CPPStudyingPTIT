@@ -24,7 +24,7 @@ int main()
 			int oddMax = 10;
 			for(auto x : s)
 				a[x - '0']++;
-			for(int i = 9; i > 0; --i)
+			for(intdd i = 9; i > 0; --i)
 				if(a[i] && a[i] % 2 == 0)
 					v.push_back(make_pair(a[i] / 2, i));
 				else if(a[i] > a[oddMax])
@@ -41,10 +41,10 @@ int main()
 			}
 			v.push_back(make_pair(a[oddMax] / 2, oddMax));
 //			sort(v.begin(), v.end(), [](auto x, auto y)  // đề như * sort số thì WA
-	//			{
-	//				return x.second > y.second;
-	//			}
-	//			);
+//				{
+//					return x.second > y.second;
+//				}
+//				);
 			for(int i = 0; i < v.size(); ++i)
 				for(int j = 0; j < v[i].first; ++j)
 					cout << v[i].second;
