@@ -44,6 +44,6 @@ int main()
 	faster();
 	SinhVien a;
 	cin >> a;
-    cout << a;
+	cout << a;
 	return 0;
 }
