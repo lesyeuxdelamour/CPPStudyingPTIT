@@ -87,12 +87,12 @@ void nhapxuatHD()
 	ll number;
 	ifstream fin("HD.in");
 	int n;
-	cin >> n;
+	fin >> n;
 	for(int i = 0; i < n; ++i)
 	{
 		stthd++;
 		IDhd = "HD0" + string((stthd < 10) ? 1 : 0, '0') + to_string(stthd);
-		cin >> IDkh >> IDmh >> number;
+		fin >> IDkh >> IDmh >> number;
 		cout << IDhd << " " << KH[IDkh].name << " " << KH[IDkh].address << " ";
 		cout << MH[IDmh].name << " " << MH[IDmh].unit << " " << MH[IDmh].buy << " " << MH[IDmh].sell << " ";
 		cout << number << " " << MH[IDmh].sell * number << endl;
