@@ -11,28 +11,21 @@ int main()
 	faster();
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	// Không có 2 dòng này thì WA ?? :)
-	int t;
-	cin >> t;
-	while(t--)
-	{
-		string s;
-		cin >> s;
-		int n = s.size();
-		/*
-		while(s.find("100") != string::npos)
-		{
-			int pos = s.find("100");
-			s.erase(pos, 3);
-		}
-		*/ // Testcase sai :))
-		for(int i = 0; i < s.size() - 2; ++i)
-			if(s[i] == '1' && s[i + 1] == '0' && s[i + 2] == '0')
-			{
-				s.erase(i, 3);
-				i -= 2;
-			}
-		cout << n - s.size() << endl;
-	}
+// 	Chỉ cần có 2 dòng này là AC, nếu không có thì WA ?? =)))
+
+//	int t;
+//	cin >> t;
+//	while(t--)
+//	{
+//		string s;
+//		cin >> s;
+//		int n = s.size();
+//		while(s.find("100") != string::npos)
+//		{
+//			int pos = s.find("100");
+//			s.erase(pos, 3);
+//		}
+//	}
+// 	Testcase sai :))
 	return 0;
 }
