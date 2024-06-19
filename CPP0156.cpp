@@ -13,16 +13,11 @@ int main()
 	cin >> t;
 	while(t--)
 	{
-		int k, p, cnt = 0;
-		cin >> k >> p;
-		for(ll i = 1; i < p; ++i)
+		int n, p, cnt = 0;
+		cin >> n >> p;
+		for(ll i = 1; i < min(n, p); ++i)
 			if((i * i) % p == 1)
-			{
-				ll n = i + p * (k / p); // i là nghiệm thì i + k * p cũng là nghiệm
-				if(n > k)
-					n -= p;
 				cnt += (n - i) / p + 1;
-			}
 		cout << cnt << endl;
 	}
 	return 0;
